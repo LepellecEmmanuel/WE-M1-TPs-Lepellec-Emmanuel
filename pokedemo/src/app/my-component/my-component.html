@@ -1,0 +1,13 @@
+<input [(ngModel)]="id" />
+<input readonly [value]="pokename()" />
+<br />
+<input [(ngModel)]="searchPokemonName" />
+<select [(ngModel)]="selectedPokemonId">
+  @for (pokemon of pokelist | filterPokemonPipe:'name':searchPokemonName; track pokemon.name;) {
+  <option [value]="pokemon.id">
+    {{ pokemon.name }}
+  </option>
+  }
+</select>
+<br />
+<button (click)="go()">GO</button>
